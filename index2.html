@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recovery Journey Tool | Luxe Edition</title>
-    <!-- Google Fonts -->
+    <title>Recovery Journey Tool | Sacred Edition</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Raleway:wght@300;400;500&family=Dancing+Script:wght@400;500&family=Parisienne&display=swap" rel="stylesheet">
@@ -16,9 +15,10 @@
         }
 
         :root {
-            --soft-grey: #F5F5F7;
-            --light-grey: #EAEAEC;
-            --medium-grey: #D8D8DC;
+            --rich-grey: #6B6B6B;
+            --soft-grey: #8A8A8A;
+            --light-grey: #A8A8A8;
+            --bg-grey: #4A4A4A;
             --lilac: #C8A2C8;
             --soft-lilac: #E6D4E6;
             --blush: #FFD1DC;
@@ -26,14 +26,11 @@
             --gold: #D4AF37;
             --light-gold: #EBD99F;
             --cream: #FAF7F2;
-            --pearl: #FFFEFC;
-            --platinum: #F0F0F5;
-            --silk: #F8F6F2;
         }
 
         body {
             font-family: 'Cormorant Garamond', serif;
-            background: linear-gradient(135deg, var(--soft-grey) 0%, var(--light-grey) 50%, var(--platinum) 100%);
+            background: linear-gradient(135deg, #5A5A5A 0%, #6B6B6B 50%, #7A7A7A 100%);
             min-height: 100vh;
             padding: 20px;
             color: #555;
@@ -48,15 +45,14 @@
             margin: 0 auto;
         }
 
-        /* Progress Bar - Elegant Redesign */
         .progress-bar {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
             border-radius: 16px;
             padding: 20px 24px;
             margin-bottom: 32px;
             border: 1px solid rgba(200, 162, 200, 0.2);
-            box-shadow: 0 8px 32px rgba(200, 162, 200, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
         }
@@ -114,15 +110,14 @@
             box-shadow: 0 0 20px rgba(200, 162, 200, 0.2);
         }
 
-        /* Main Card - Luxury Design */
         .card {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.97);
             backdrop-filter: blur(25px);
             border-radius: 24px;
             padding: 60px 48px;
             border: 1px solid rgba(200, 162, 200, 0.1);
             box-shadow: 
-                0 20px 60px rgba(200, 162, 200, 0.15),
+                0 20px 60px rgba(0, 0, 0, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.9);
             position: relative;
             overflow: hidden;
@@ -161,7 +156,6 @@
             50% { opacity: 0.6; }
         }
 
-        /* Typography - Elegant */
         h1 {
             font-family: 'Playfair Display', serif;
             font-size: 3.2rem;
@@ -230,7 +224,6 @@
             font-style: italic;
         }
 
-        /* Hero Elements */
         .hero-icon {
             text-align: center;
             font-size: 4.5rem;
@@ -259,7 +252,6 @@
             transform: scale(1.01);
         }
 
-        /* Info Boxes - Luxury Style */
         .info-box {
             background: linear-gradient(135deg, 
                 rgba(200, 162, 200, 0.08) 0%, 
@@ -314,7 +306,6 @@
             border-bottom-color: var(--blush);
         }
 
-        /* Grid Layout - Elegant */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -366,7 +357,6 @@
             display: block;
         }
 
-        /* Form Elements - Luxury */
         label {
             display: block;
             font-family: 'Cormorant Garamond', serif;
@@ -380,7 +370,6 @@
 
         input[type="text"],
         input[type="date"],
-        input[type="file"],
         textarea {
             width: 100%;
             padding: 16px 20px;
@@ -397,7 +386,6 @@
 
         input[type="text"]:focus,
         input[type="date"]:focus,
-        input[type="file"]:focus,
         textarea:focus {
             outline: none;
             border-color: var(--blush);
@@ -418,7 +406,6 @@
             line-height: 1.6;
         }
 
-        /* Buttons - Luxury */
         .button-group {
             display: flex;
             gap: 20px;
@@ -496,7 +483,6 @@
             transform: none !important;
         }
 
-        /* Numerology Results - Luxury */
         .numerology-result {
             background: linear-gradient(135deg, 
                 rgba(200, 162, 200, 0.1) 0%, 
@@ -509,17 +495,6 @@
             backdrop-filter: blur(15px);
             box-shadow: 0 20px 50px rgba(200, 162, 200, 0.1);
             position: relative;
-        }
-
-        .numerology-result::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23c8a2c8' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.5;
         }
 
         .numerology-circle {
@@ -572,161 +547,6 @@
             z-index: 1;
         }
 
-        /* Vision Board Upload - Luxury */
-        .file-upload-container {
-            position: relative;
-            margin: 32px 0;
-        }
-
-        .file-upload-label {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 60px 40px;
-            border: 3px dashed rgba(200, 162, 200, 0.3);
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .file-upload-label:hover {
-            border-color: var(--blush);
-            background: white;
-            transform: translateY(-2px);
-        }
-
-        .file-upload-icon {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: var(--lilac);
-        }
-
-        .file-upload-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 12px;
-            font-weight: 500;
-            font-style: italic;
-        }
-
-        .file-upload-subtext {
-            font-size: 0.9rem;
-            color: rgba(150, 150, 150, 0.8);
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-        }
-
-        #fileInput {
-            display: none;
-        }
-
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 20px;
-            margin-top: 32px;
-        }
-
-        .image-container {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 2px solid rgba(200, 162, 200, 0.2);
-            transition: all 0.3s ease;
-            background: white;
-        }
-
-        .image-container:hover {
-            transform: translateY(-4px);
-            border-color: var(--lilac);
-            box-shadow: 0 15px 30px rgba(200, 162, 200, 0.1);
-        }
-
-        .image-container img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .image-remove {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(255, 255, 255, 0.95);
-            color: var(--blush);
-            border: none;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            cursor: pointer;
-            font-size: 1.5rem;
-            line-height: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 209, 220, 0.2);
-            font-family: 'Raleway', sans-serif;
-            font-style: normal;
-        }
-
-        .image-container:hover .image-remove {
-            opacity: 1;
-        }
-
-        .image-remove:hover {
-            background: var(--blush);
-            color: white;
-            transform: scale(1.1);
-        }
-
-        .image-name {
-            padding: 12px;
-            font-size: 0.9rem;
-            color: #888;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            text-align: center;
-            background: rgba(250, 250, 250, 0.9);
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-        }
-
-        /* Arrangement Controls */
-        .arrangement-controls {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-            justify-content: center;
-        }
-
-        .arrange-btn {
-            background: rgba(200, 162, 200, 0.1);
-            border: 1px solid rgba(200, 162, 200, 0.2);
-            color: var(--lilac);
-            padding: 6px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-family: 'Raleway', sans-serif;
-            transition: all 0.3s ease;
-            font-style: normal;
-        }
-
-        .arrange-btn:hover {
-            background: rgba(200, 162, 200, 0.2);
-            border-color: var(--lilac);
-        }
-
-        /* List Styles */
         ul {
             list-style: none;
             margin: 20px 0;
@@ -752,12 +572,10 @@
             font-size: 0.9rem;
         }
 
-        /* Hidden Utility */
         .hidden {
             display: none;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
                 padding: 12px;
@@ -782,14 +600,8 @@
             .progress-bar {
                 padding: 16px 20px;
             }
-
-            .image-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-                gap: 16px;
-            }
         }
 
-        /* Handwritten Elements */
         .handwriting {
             font-family: 'Dancing Script', cursive;
             font-size: 2rem;
@@ -805,7 +617,6 @@
             font-weight: 500;
         }
 
-        /* Scrollbar Styling */
         ::-webkit-scrollbar {
             width: 10px;
         }
@@ -826,7 +637,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Progress Bar -->
         <div class="progress-bar">
             <div class="progress-header">
                 <span class="progress-label">Your Journey Progress</span>
@@ -837,12 +647,9 @@
             </div>
         </div>
 
-        <!-- Main Card -->
         <div class="card" id="mainCard">
-            <!-- Content will be dynamically inserted here -->
         </div>
 
-        <!-- Save Indicator -->
         <div class="save-indicator">
             <span>💎</span>
             <span>Your work is automatically saved</span>
@@ -850,11 +657,10 @@
     </div>
 
     <script>
-        // State management
         let currentModule = 0;
         let data = {
             playingTape: { trigger: '', thoughts: '', actions: '', consequences: '', feelings: '' },
-            visionBoard: { images: [], goals: ['', '', ''] },
+            visionBoard: { goals: ['', '', ''] },
             birthDate: '',
             sobrietyDate: '',
             numerology: null,
@@ -862,7 +668,6 @@
             letterFromFuture: ''
         };
 
-        // Load saved data on page load
         window.addEventListener('DOMContentLoaded', () => {
             const saved = localStorage.getItem('recoveryJourneyData');
             if (saved) {
@@ -871,19 +676,16 @@
             renderModule();
         });
 
-        // Save data to localStorage
         function saveData() {
             localStorage.setItem('recoveryJourneyData', JSON.stringify(data));
         }
 
-        // Update progress bar
         function updateProgress() {
             const progress = ((currentModule + 1) / 7) * 100;
             document.getElementById('progressFill').style.width = progress + '%';
             document.getElementById('progressCount').textContent = `${currentModule + 1} of 7`;
         }
 
-        // Navigate between modules
         function goToModule(index) {
             currentModule = index;
             updateProgress();
@@ -891,7 +693,6 @@
             window.scrollTo(0, 0);
         }
 
-        // Numerology calculation
         function calculateNumerology(birthDateStr, sobrietyDateStr) {
             if (!birthDateStr || !sobrietyDateStr) return null;
 
@@ -965,106 +766,6 @@
             };
         }
 
-        // Vision Board File Upload
-        function setupFileUpload() {
-            const fileInput = document.getElementById('fileInput');
-            if (fileInput) {
-                fileInput.addEventListener('change', handleFileSelect);
-            }
-        }
-
-        function handleFileSelect(event) {
-            const files = event.target.files;
-            for (let i = 0; i < files.length; i++) {
-                const file = files[i];
-                if (!file.type.match('image.*')) continue;
-                
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    data.visionBoard.images.push({
-                        name: file.name,
-                        data: e.target.result,
-                        order: data.visionBoard.images.length
-                    });
-                    saveData();
-                    updateImageGrid();
-                };
-                reader.readAsDataURL(file);
-            }
-            // Reset input to allow selecting same file again
-            event.target.value = '';
-        }
-
-        function updateImageGrid() {
-            const grid = document.getElementById('imageGrid');
-            if (grid) {
-                grid.innerHTML = renderImageGrid();
-                setupImageControls();
-            }
-        }
-
-        function renderImageGrid() {
-            if (data.visionBoard.images.length === 0) {
-                return '<p style="text-align: center; color: rgba(150,150,150,0.5); font-style: italic;">No images added yet. Upload some images to create your vision board.</p>';
-            }
-            
-            // Sort images by order
-            const sortedImages = [...data.visionBoard.images].sort((a, b) => a.order - b.order);
-            
-            return sortedImages.map((img, i) => `
-                <div class="image-container">
-                    <img src="${img.data}" alt="${img.name}" data-index="${i}">
-                    <div class="image-name">${img.name}</div>
-                    <div class="arrangement-controls">
-                        <button class="arrange-btn" onclick="moveImageUp(${i})" ${i === 0 ? 'disabled style="opacity:0.5;"' : ''}>↑</button>
-                        <button class="arrange-btn" onclick="moveImageDown(${i})" ${i === data.visionBoard.images.length - 1 ? 'disabled style="opacity:0.5;"' : ''}>↓</button>
-                        <button class="arrange-btn" onclick="removeImage(${i})">✕</button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function setupImageControls() {
-            // Already set up via onclick handlers in renderImageGrid
-        }
-
-        function moveImageUp(index) {
-            if (index > 0) {
-                const temp = data.visionBoard.images[index].order;
-                data.visionBoard.images[index].order = data.visionBoard.images[index - 1].order;
-                data.visionBoard.images[index - 1].order = temp;
-                
-                // Sort the array
-                data.visionBoard.images.sort((a, b) => a.order - b.order);
-                saveData();
-                updateImageGrid();
-            }
-        }
-
-        function moveImageDown(index) {
-            if (index < data.visionBoard.images.length - 1) {
-                const temp = data.visionBoard.images[index].order;
-                data.visionBoard.images[index].order = data.visionBoard.images[index + 1].order;
-                data.visionBoard.images[index + 1].order = temp;
-                
-                // Sort the array
-                data.visionBoard.images.sort((a, b) => a.order - b.order);
-                saveData();
-                updateImageGrid();
-            }
-        }
-
-        function removeImage(index) {
-            data.visionBoard.images.splice(index, 1);
-            // Reassign order numbers
-            data.visionBoard.images.forEach((img, i) => {
-                img.order = i;
-            });
-            saveData();
-            updateImageGrid();
-        }
-
-        // Module rendering functions
         const modules = [
             renderWelcome,
             renderPlayingTape,
@@ -1077,22 +778,18 @@
 
         function renderModule() {
             modules[currentModule]();
-            // Re-setup file upload after rendering vision board
-            if (currentModule === 2) {
-                setTimeout(setupFileUpload, 100);
-            }
         }
 
         function renderWelcome() {
             document.getElementById('mainCard').innerHTML = `
                 <div class="hero-icon">✨</div>
                 <h1>Welcome to Your Recovery Journey</h1>
-                <p class="handwriting">Where healing meets elegance</p>
-                <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem;">A sacred, private space to build your vision of recovery and connect with your future self.</p>
+                <p class="handwriting">A Sacred Space for Healing</p>
+                <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem;">A private, gentle place to build your vision of recovery and connect with your future self.</p>
 
                 <div class="info-box gold">
-                    <h3>Evidence-Based Techniques, Elegantly Presented</h3>
-                    <p>This refined tool uses proven visualization methods from addiction recovery research—guided imagery, scenario rehearsal, and vision boarding—techniques shown to enhance motivation, manage cravings, and strengthen sobriety goals.</p>
+                    <h3>Evidence-Based Techniques</h3>
+                    <p>This tool uses proven visualization methods from addiction recovery research—guided imagery, scenario rehearsal, and vision boarding—techniques shown to enhance motivation, manage cravings, and strengthen sobriety goals.</p>
                 </div>
 
                 <h3 style="color: var(--blush); font-size: 1.5rem; margin: 48px 0 24px 0; text-align: center; font-style: italic;">Your Journey Includes:</h3>
@@ -1106,7 +803,7 @@
                     <div class="grid-item pink">
                         <div class="icon">🖼️</div>
                         <h4>Vision Board Creation</h4>
-                        <p>Craft a visual map of your recovery goals with images from your device.</p>
+                        <p>Guided by your facilitator to craft a visual map of your recovery goals.</p>
                     </div>
                     <div class="grid-item">
                         <div class="icon">✨</div>
@@ -1131,7 +828,7 @@
 
         function renderPlayingTape() {
             document.getElementById('mainCard').innerHTML = `
-                <img src="https://image-cdn.klingai.com/2E67FA5DC7A24CD7AFE53DCBA8F696A4%2F9D2F0AA0831440D186E071FEA1C6FA8F/work_resize_1280_720.jpg" 
+                <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=1200&q=80" 
                      alt="Playing the Tape" class="module-image">
                 
                 <div class="hero-icon">⏮️</div>
@@ -1184,12 +881,12 @@
 
         function renderVisionBoard() {
             document.getElementById('mainCard').innerHTML = `
-                <img src="https://image-cdn.klingai.com/2E67FA5DC7A24CD7AFE53DCBA8F696A4%2F0A51AD71B64D4B358D38DE3E3E4BB80B/work_resize_1280_720.jpg" 
+                <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1200&q=80" 
                      alt="Vision Board" class="module-image">
                 
                 <div class="hero-icon">🖼️</div>
                 <h2>Create Your Vision Board</h2>
-                <p style="text-align: center; margin-bottom: 32px; font-size: 1.2rem;">Build a visual representation of your recovery goals.</p>
+                <p style="text-align: center; margin-bottom: 32px; font-size: 1.2rem;">Your facilitator will guide you through creating a visual representation of your recovery goals.</p>
 
                 <div class="info-box">
                     <h3>The Science Behind This</h3>
@@ -1197,26 +894,18 @@
                     <p style="margin-top: 12px;"><a href="https://sambarecovery.com/rehab-blog/visualization-techniques-to-support-sobriety/" target="_blank">View Research →</a></p>
                 </div>
 
+                <div class="info-box pink" style="margin-top: 32px;">
+                    <h3>Facilitator-Guided Vision Board</h3>
+                    <p>Your facilitator will help you select meaningful images and create a physical or digital vision board during your session. This collaborative process ensures your board truly reflects your personal recovery journey and goals.</p>
+                </div>
+
                 <div style="margin: 40px 0;">
                     <h3>Your Recovery Goals</h3>
-                    <input type="text" id="goal0" placeholder="Goal 1: e.g., Rebuild relationship with my daughter" value="${data.visionBoard.goals[0]}">
-                    <input type="text" id="goal1" placeholder="Goal 2" value="${data.visionBoard.goals[1]}">
-                    <input type="text" id="goal2" placeholder="Goal 3" value="${data.visionBoard.goals[2]}">
-
-                    <h3 style="margin-top: 48px;">Add Images From Your Device</h3>
+                    <p style="margin-bottom: 20px;">Take a moment to reflect on what you want to achieve in your recovery. Your facilitator will help you find images that represent these dreams.</p>
                     
-                    <div class="file-upload-container">
-                        <label for="fileInput" class="file-upload-label">
-                            <div class="file-upload-icon">📁</div>
-                            <div class="file-upload-text">Browse or Drag & Drop Images</div>
-                            <div class="file-upload-subtext">JPG, PNG, or GIF up to 5MB each</div>
-                        </label>
-                        <input type="file" id="fileInput" accept="image/*" multiple>
-                    </div>
-
-                    <div class="image-grid" id="imageGrid">
-                        ${renderImageGrid()}
-                    </div>
+                    <input type="text" id="goal0" placeholder="Goal 1: e.g., Rebuild relationship with my daughter" value="${data.visionBoard.goals[0]}">
+                    <input type="text" id="goal1" placeholder="Goal 2: e.g., Return to my career with confidence" value="${data.visionBoard.goals[1]}">
+                    <input type="text" id="goal2" placeholder="Goal 3: e.g., Find peace and joy in everyday moments" value="${data.visionBoard.goals[2]}">
                 </div>
 
                 <div class="button-group">
@@ -1240,7 +929,7 @@
 
         function renderNumerology() {
             document.getElementById('mainCard').innerHTML = `
-                <img src="https://image-cdn.klingai.com/2E67FA5DC7A24CD7AFE53DCBA8F696A4%2FAC2A11CCCBC04C3F81CA99A5BD71C9BA/work_resize_1280_720.jpg" 
+                <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1200&q=80" 
                      alt="Numerology" class="module-image">
                 
                 <div class="hero-icon">✨</div>
@@ -1293,7 +982,7 @@
                     <h3>Karmic Debt Numbers</h3>
                     ${data.numerology.karmicDebt.map(k => `
                         <div style="margin-bottom: 16px;">
-                            <p style="font-family: \'Cormorant Garamond\', serif; font-weight: 500; color: var(--blush); margin-bottom: 6px;">Number ${k.number}</p>
+                            <p style="font-family: 'Cormorant Garamond', serif; font-weight: 500; color: var(--blush); margin-bottom: 6px;">Number ${k.number}</p>
                             <p style="font-size: 0.95rem;">${k.meaning}</p>
                         </div>
                     `).join('')}
@@ -1324,7 +1013,7 @@
 
         function renderLetterToFuture() {
             document.getElementById('mainCard').innerHTML = `
-                <img src="https://image-cdn.klingai.com/2E67FA5DC7A24CD7AFE53DCBA8F696A4%2F75B46DE9D60F430C9A2D61AF98B1B7A0/work_resize_1280_720.jpg" 
+                <img src="https://images.unsplash.com/photo-1455849318743-b2233052fcff?w=1200&q=80" 
                      alt="Letter to Future" class="module-image">
                 
                 <div class="hero-icon">💌</div>
@@ -1375,7 +1064,7 @@ I want you to know that...">${data.letterToFuture}</textarea>
 
         function renderLetterFromFuture() {
             document.getElementById('mainCard').innerHTML = `
-                <img src="https://image-cdn.klingai.com/2E67FA5DC7A24CD7AFE53DCBA8F696A4%2FE7C24DB0FA004C02983D4FB8A62A6C64/work_resize_1280_720.jpg" 
+                <img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=1200&q=80" 
                      alt="Letter from Future" class="module-image">
                 
                 <div class="hero-icon">❤️</div>
@@ -1438,7 +1127,7 @@ Looking back, I remember...">${data.letterFromFuture}</textarea>
             document.getElementById('mainCard').innerHTML = `
                 <div class="hero-icon">🏆</div>
                 <h1>Your Recovery Journey is Complete</h1>
-                <p class="handwriting">You've done powerful, elegant work today</p>
+                <p class="handwriting">You've done powerful, sacred work today</p>
                 <p style="text-align: center; margin-bottom: 48px; font-size: 1.2rem;">This sacred space and your reflections are yours to keep and return to.</p>
 
                 <div class="info-box gold" style="background: linear-gradient(135deg, 
@@ -1450,28 +1139,28 @@ Looking back, I remember...">${data.letterFromFuture}</textarea>
                         <div style="display: flex; align-items: center; gap: 20px; padding: 16px; background: rgba(255, 255, 255, 0.6); border-radius: 12px;">
                             <span style="font-size: 2rem;">⏮️</span>
                             <div>
-                                <p style="font-family: \'Cormorant Garamond\', serif; font-weight: 600; color: var(--lilac); margin-bottom: 4px; font-size: 1.2rem;">Playing the Tape Through</p>
+                                <p style="font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--lilac); margin-bottom: 4px; font-size: 1.2rem;">Playing the Tape Through</p>
                                 <p style="font-size: 0.95rem;">Understanding consequences</p>
                             </div>
                         </div>
                         <div style="display: flex; align-items: center; gap: 20px; padding: 16px; background: rgba(255, 255, 255, 0.6); border-radius: 12px;">
                             <span style="font-size: 2rem;">🖼️</span>
                             <div>
-                                <p style="font-family: \'Cormorant Garamond\', serif; font-weight: 600; color: var(--lilac); margin-bottom: 4px; font-size: 1.2rem;">Vision Board</p>
-                                <p style="font-size: 0.95rem;">${data.visionBoard.goals.filter(g => g).length} goals, ${data.visionBoard.images.length} images</p>
+                                <p style="font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--lilac); margin-bottom: 4px; font-size: 1.2rem;">Vision Board</p>
+                                <p style="font-size: 0.95rem;">${data.visionBoard.goals.filter(g => g).length} goals defined</p>
                             </div>
                         </div>
                         <div style="display: flex; align-items: center; gap: 20px; padding: 16px; background: rgba(255, 255, 255, 0.6); border-radius: 12px;">
                             <span style="font-size: 2rem;">✨</span>
                             <div>
-                                <p style="font-family: \'Cormorant Garamond\', serif; font-weight: 600; color: var(--lilac); margin-bottom: 4px; font-size: 1.2rem;">Numerology Analysis</p>
+                                <p style="font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--lilac); margin-bottom: 4px; font-size: 1.2rem;">Numerology Analysis</p>
                                 <p style="font-size: 0.95rem;">${data.numerology ? data.numerology.lifePath.title : 'Not completed'}</p>
                             </div>
                         </div>
                         <div style="display: flex; align-items: center; gap: 20px; padding: 16px; background: rgba(255, 255, 255, 0.6); border-radius: 12px;">
                             <span style="font-size: 2rem;">💌</span>
                             <div>
-                                <p style="font-family: \'Cormorant Garamond\', serif; font-weight: 600; color: var(--lilac); margin-bottom: 4px; font-size: 1.2rem;">Letters to & from Future Self</p>
+                                <p style="font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--lilac); margin-bottom: 4px; font-size: 1.2rem;">Letters to & from Future Self</p>
                                 <p style="font-size: 0.95rem;">Connection and wisdom</p>
                             </div>
                         </div>
@@ -1511,11 +1200,11 @@ Looking back, I remember...">${data.letterFromFuture}</textarea>
                     padding: 48px; border-radius: 20px; 
                     border: 2px solid rgba(212, 175, 55, 0.2); 
                     margin-top: 40px;">
-                    <p style="font-size: 1.4rem; font-family: \'Playfair Display\', serif; 
+                    <p style="font-size: 1.4rem; font-family: 'Playfair Display', serif; 
                         font-weight: 600; background: linear-gradient(135deg, var(--lilac) 0%, var(--blush) 50%, var(--gold) 100%); 
                         -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
                         margin-bottom: 16px; line-height: 1.4;">
-                        Your future self is proud of you for doing this elegant, profound work today.
+                        Your future self is proud of you for doing this sacred, profound work today.
                     </p>
                     <p style="font-size: 1.1rem; color: #666;">
                         One day at a time. You are worthy. You are capable. You are becoming. 💜
@@ -1526,8 +1215,6 @@ Looking back, I remember...">${data.letterFromFuture}</textarea>
 
         function downloadJourney() {
             const goalsText = data.visionBoard.goals.filter(g => g).map((g, i) => `${i + 1}. ${g}`).join('\n') || 'Not set';
-            const imagesText = data.visionBoard.images.length > 0 ? 
-                `Images: ${data.visionBoard.images.map(img => img.name).join(', ')}` : 'No images added';
             
             const content = `MY RECOVERY JOURNEY
 ═════════════════════════════════
@@ -1566,10 +1253,6 @@ MY RECOVERY GOALS
 ═══════════════════
 ${goalsText}
 
-VISION BOARD
-══════════════
-${imagesText}
-
 LETTER TO MY FUTURE SELF
 ═════════════════════════
 ${data.letterToFuture || 'Not written yet'}
@@ -1594,7 +1277,7 @@ Your Journey Companion
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'My-Recovery-Journey-Luxe.txt';
+            a.download = 'My-Recovery-Journey-Sacred.txt';
             a.click();
             URL.revokeObjectURL(url);
         }
