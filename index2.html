@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recovery Journey Tool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #e0b3ff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .progress-bar {
+            background: rgba(30, 30, 50, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(200, 150, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .progress-label {
+            font-size: 14px;
+            color: #c49edb;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .progress-count {
+            font-size: 14px;
+            color: #ff9ec9;
+            font-weight: 600;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 8px;
+            background: #3a3a5a;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #a78bfa 0%, #ff9ec9 50%, #a78bfa 100%);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+            box-shadow: 0 0 20px rgba(167, 139, 250, 0.5);
+        }
+
+        .card {
+            background: rgba(30, 30, 50, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 48px 32px;
+            border: 1px solid rgba(200, 150, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .save-indicator {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 14px;
+            color: #c49edb;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #c49edb 0%, #ff9ec9 50%, #c49edb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #c49edb 0%, #ff9ec9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #c49edb;
+            margin-bottom: 12px;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ff9ec9;
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e0b3ff;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .hero-icon {
+            text-align: center;
+            font-size: 4rem;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 4px 12px rgba(255, 158, 201, 0.4));
+        }
+
+        .module-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+
+        .info-box {
+            background: rgba(139, 92, 246, 0.15);
+            border-left: 4px solid #a78bfa;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 24px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .info-box.pink {
+            background: rgba(255, 158, 201, 0.15);
+            border-left-color: #ff9ec9;
+        }
+
+        .info-box.red {
+            background: rgba(220, 38, 38, 0.15);
+            border-left-color: #ff9ec9;
+        }
+
+        .info-box h3 {
+            color: #ff9ec9;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .info-box p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #e0b3ff;
+        }
+
+        .info-box a {
+            color: #ff9ec9;
+            text-decoration: underline;
+        }
+
+        .info-box a:hover {
+            color: #ffc4dd;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .grid-item {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            padding: 20px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .grid-item.pink {
+            background: rgba(255, 158, 201, 0.1);
+            border-color: rgba(255, 158, 201, 0.3);
+        }
+
+        .grid-item svg {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 12px;
+            color: #ff9ec9;
+        }
+
+        .grid-item h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .grid-item p {
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            color: #c49edb;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(60, 60, 90, 0.5);
+            border: 2px solid rgba(167, 139, 250, 0.3);
+            border-radius: 8px;
+            color: #e0b3ff;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+            margin-bottom: 16px;
+        }
+
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #ff9ec9;
+        }
+
+        input[type="text"]::placeholder,
+        textarea::placeholder {
+            color: rgba(167, 139, 250, 0.5);
+            font-style: italic;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+            font-style: italic;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        button {
+            flex: 1;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        button.primary {
+            background: linear-gradient(135deg, #a78bfa 0%, #ff9ec9 50%, #a78bfa 100%);
+            color: white;
+            box-shadow: 0 8px 24px rgba(167, 139, 250, 0.5);
+        }
+
+        button.primary:hover {
+            background: linear-gradient(135deg, #9370db 0%, #ff7eb3 50%, #9370db 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(167, 139, 250, 0.6);
+        }
+
+        button.secondary {
+            background: #3a3a5a;
+            color: #c49edb;
+        }
+
+        button.secondary:hover {
+            background: #4a4a6a;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .numerology-result {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(255, 158, 201, 0.2) 100%);
+            padding: 32px;
+            border-radius: 16px;
+            border: 2px solid rgba(167, 139, 250, 0.5);
+            margin: 24px 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .numerology-circle {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #1a1a2e;
+            border: 4px solid #ff9ec9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ff9ec9;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 16px rgba(255, 158, 201, 0.5);
+        }
+
+        .numerology-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #ff9ec9;
+            margin-bottom: 8px;
+        }
+
+        .numerology-subtitle {
+            font-size: 0.9rem;
+            color: #c49edb;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .numerology-message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e0b3ff;
+            font-style: italic;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .image-container {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid rgba(167, 139, 250, 0.3);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-remove {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #ff9ec9;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            line-height: 1;
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-container:hover .image-remove {
+            opacity: 1;
+        }
+
+        .add-image-group {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .add-image-group input {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        .add-image-group button {
+            flex: 0 0 auto;
+            padding: 12px 24px;
+        }
+
+        ul {
+            list-style: disc;
+            padding-left: 24px;
+            margin: 12px 0;
+        }
+
+        li {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #e0b3ff;
+            font-style: italic;
+            margin-bottom: 4px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 12px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .card {
+                padding: 32px 20px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-header">
+                <span class="progress-label">Your Progress</span>
+                <span class="progress-count" id="progressCount">1 of 7</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill" style="width: 14.28%"></div>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card" id="mainCard">
+            <!-- Content will be dynamically inserted here -->
+        </div>
+
+        <!-- Save Indicator -->
+        <div class="save-indicator">
+            <span>💾</span>
+            <span>Your work is automatically saved</span>
+        </div>
+    </div>
+
+    <script>
+        // State management
+        let currentModule = 0;
+        let data = {
+            playingTape: { trigger: '', thoughts: '', actions: '', consequences: '', feelings: '' },
+            visionBoard: { images: [], goals: ['', '', ''] },
+            birthDate: '',
+            sobrietyDate: '',
+            numerology: null,
+            letterToFuture: '',
+            letterFromFuture: ''
+        };
+
+        // Load saved data on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('recoveryJourneyData');
+            if (saved) {
+                data = JSON.parse(saved);
+            }
+            renderModule();
+        });
+
+        // Save data to localStorage
+        function saveData() {
+            localStorage.setItem('recoveryJourneyData', JSON.stringify(data));
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            const progress = ((currentModule + 1) / 7) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressCount').textContent = `${currentModule + 1} of 7`;
+        }
+
+        // Navigate between modules
+        function goToModule(index) {
+            currentModule = index;
+            updateProgress();
+            renderModule();
+            window.scrollTo(0, 0);
+        }
+
+        // Numerology calculation
+        function calculateNumerology(birthDateStr, sobrietyDateStr) {
+            if (!birthDateStr || !sobrietyDateStr) return null;
+
+            const reduceToSingle = (num) => {
+                while (num > 9 && num !== 11 && num !== 22 && num !== 33) {
+                    num = num.toString().split('').reduce((acc, digit) => acc + parseInt(digit), 0);
+                }
+                return num;
+            };
+
+            const birthDigits = birthDateStr.replace(/\D/g, '');
+            let lifePathSum = birthDigits.split('').reduce((acc, digit) => acc + parseInt(digit), 0);
+            const lifePath = reduceToSingle(lifePathSum);
+
+            const today = new Date();
+            const birthDate = new Date(birthDateStr);
+            const currentYear = today.getFullYear();
+            const personalYearSum = birthDate.getDate() + (birthDate.getMonth() + 1) + currentYear;
+            const personalYear = reduceToSingle(personalYearSum);
+
+            const checkKarmicDebt = (dateStr) => {
+                const nums = dateStr.replace(/\D/g, '').match(/.{1,2}/g) || [];
+                const karmicNumbers = [];
+                nums.forEach(num => {
+                    const n = parseInt(num);
+                    if ([13, 14, 16, 19].includes(n)) karmicNumbers.push(n);
+                });
+                return karmicNumbers;
+            };
+
+            const karmicDebt = checkKarmicDebt(birthDateStr);
+
+            const lifePathMeanings = {
+                1: { title: "The Pioneer", message: "You are a natural leader, independent and driven. Your recovery journey is about reclaiming your personal power." },
+                2: { title: "The Peacemaker", message: "You seek harmony and balance. Your recovery is about finding inner peace." },
+                3: { title: "The Creative Spirit", message: "Expression and joy are your gifts. In sobriety, you'll rediscover your authentic voice." },
+                4: { title: "The Builder", message: "You create solid foundations. Every sober day is a brick in your new life." },
+                5: { title: "The Freedom Seeker", message: "You crave adventure. True freedom comes through sobriety." },
+                6: { title: "The Nurturer", message: "You care deeply. In recovery, you'll learn to nurture yourself too." },
+                7: { title: "The Seeker", message: "Your journey is deeply spiritual. Sobriety will reveal profound truths." },
+                8: { title: "The Powerhouse", message: "You understand abundance. Recovery returns your personal power." },
+                9: { title: "The Humanitarian", message: "You have wisdom to share. Your recovery will inspire others." },
+                11: { title: "The Illuminator", message: "Master number - Your sobriety will light the way for others." },
+                22: { title: "The Master Builder", message: "Master number - You'll create something extraordinary." },
+                33: { title: "The Master Teacher", message: "Master number - Your recovery will heal many." }
+            };
+
+            const personalYearMeanings = {
+                1: "New Beginnings - Perfect for starting recovery",
+                2: "Balance & Relationships - Focus on healing connections",
+                3: "Self-Expression - Rediscover your voice",
+                4: "Building Foundations - Establish routines",
+                5: "Change & Freedom - Embrace transformation",
+                6: "Nurturing - Learn self-compassion",
+                7: "Introspection - Ideal for deep healing",
+                8: "Personal Power - Reclaim your strength",
+                9: "Completion - Let go of the past"
+            };
+
+            const karmicMeanings = {
+                13: "Discipline & Focus - Your growth requires dedication",
+                14: "Moderation - Learning balance is your path",
+                16: "Ego & Humility - Surrender control",
+                19: "Independence - Stand on your own, but accept help"
+            };
+
+            return {
+                lifePath: { number: lifePath, ...lifePathMeanings[lifePath] },
+                personalYear: { number: personalYear, meaning: personalYearMeanings[personalYear] },
+                karmicDebt: karmicDebt.map(n => ({ number: n, meaning: karmicMeanings[n] }))
+            };
+        }
+
+        // Module rendering functions
+        const modules = [
+            renderWelcome,
+            renderPlayingTape,
+            renderVisionBoard,
+            renderNumerology,
+            renderLetterToFuture,
+            renderLetterFromFuture,
+            renderCompletion
+        ];
+
+        function renderModule() {
+            modules[currentModule]();
+        }
+
+        function renderWelcome() {
+            document.getElementById('mainCard').innerHTML = `
+                <div class="hero-icon">❤️</div>
+                <h1>Welcome to Your Recovery Journey</h1>
+                <p style="text-align: center; margin-bottom: 32px;">A safe, private space to build your vision of recovery and connect with your future self.</p>
+
+                <div class="info-box">
+                    <h3>Evidence-Based Techniques</h3>
+                    <p>This tool uses proven visualization methods from addiction recovery research, including guided imagery, scenario rehearsal, and vision boarding—techniques shown to enhance motivation, manage cravings, and strengthen sobriety goals.</p>
+                </div>
+
+                <h3 style="color: #ff9ec9; font-size: 1.3rem; margin: 32px 0 16px 0;">Your Journey Includes:</h3>
+
+                <div class="grid">
+                    <div class="grid-item">
+                        <div style="font-size: 2rem; margin-bottom: 12px;">⏮️</div>
+                        <h4>Playing the Tape Through</h4>
+                        <p>Rehearse and understand relapse consequences</p>
+                    </div>
+                    <div class="grid-item pink">
+                        <div style="font-size: 2rem; margin-bottom: 12px;">🖼️</div>
+                        <h4>Vision Board</h4>
+                        <p>Create a visual map of your recovery goals</p>
+                    </div>
+                    <div class="grid-item">
+                        <div style="font-size: 2rem; margin-bottom: 12px;">✨</div>
+                        <h4>Numerology Analysis</h4>
+                        <p>Discover your Life Path and Personal Year</p>
+                    </div>
+                    <div class="grid-item pink">
+                        <div style="font-size: 2rem; margin-bottom: 12px;">💌</div>
+                        <h4>Future Self Letters</h4>
+                        <p>Connect with the person you're becoming</p>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="primary" onclick="goToModule(1)">
+                        Begin Your Journey
+                        <span>→</span>
+                    </button>
+                </div>
+            `;
+        }
+
+        function renderPlayingTape() {
+            document.getElementById('mainCard').innerHTML = `
+                <img src="https://image-cdn.klingai.com/2E67FA5DC7A24CD7AFE53DCBA8F696A4%2F9D2F0AA0831440D186E071FEA1C6FA8F/work_resize_1280_720.jpg" 
+                     alt="Playing the Tape" class="module-image">
+                
+                <div class="hero-icon">⏮️</div>
+                <h2>Playing the Tape Through</h2>
+                <p style="text-align: center; margin-bottom: 24px;">Mentally rehearse a relapse scenario to internalize the consequences.</p>
+
+                <div class="info-box red">
+                    <h3>The Science Behind This</h3>
+                    <p>Research shows mentally rehearsing full consequences of relapse improves decision-making and stress response. This integrates with CBT/DBT approaches to addiction recovery.</p>
+                    <p style="margin-top: 8px; font-size: 0.8rem;"><a href="https://addictiontreatmentforyou.com/visualization-in-addiction-recovery/" target="_blank">View Research</a></p>
+                </div>
+
+                <div style="margin: 24px 0;">
+                    <label>1. The Trigger</label>
+                    <textarea id="trigger" placeholder="What situation might lead you to consider using?">${data.playingTape.trigger}</textarea>
+
+                    <label>2. The Thoughts</label>
+                    <textarea id="thoughts" placeholder="What thoughts run through your mind?">${data.playingTape.thoughts}</textarea>
+
+                    <label>3. The Actions</label>
+                    <textarea id="actions" placeholder="What would you do?">${data.playingTape.actions}</textarea>
+
+                    <label>4. The Consequences</label>
+                    <textarea id="consequences" style="min-height: 140px;" placeholder="What happens next? Be honest...">${data.playingTape.consequences}</textarea>
+
+                    <label>5. The Aftermath</label>
+                    <textarea id="feelings" placeholder="How do you feel 24 hours later?">${data.playingTape.feelings}</textarea>
+                </div>
+
+                <div class="button-group">
+                    <button class="secondary" onclick="goToModule(0)">
+                        <span>←</span> Back
+                    </button>
+                    <button class="primary" onclick="savePlayingTape()">
+                        Continue <span>→</span>
+                    </button>
+                </div>
+            `;
+        }
+
+        function savePlayingTape() {
+            data.playingTape.trigger = document.getElementById('trigger').value;
+            data.playingTape.thoughts = document.getElementById('thoughts').value;
+            data.playingTape.actions = document.getElementById('actions').value;
+            data.playingTape.consequences = document.getElementById('consequences').value;
+            data.playingTape.feelings = document.getElementById('feelings').value;
+            saveData();
+            goToModule(2);
+        }
+
+        function renderVisionBoard() {
+            document.getElementById('mainCard').innerHTML = `
+                <img src="https://image-cdn.klingai.com/2E67FA5DC7A24CD7AFE53DCBA8F696A4%2F0A51AD71B64D4B358D38DE3E3E4BB80B/work_resize_1280_720.jpg" 
+                     alt="Vision Board" class="module-image">
+                
+                <div class="hero-icon">🖼️</div>
+                <h2>Create Your Vision Board</h2>
+                <p style="text-align: center; margin-bottom: 24px;">Build a visual representation of your recovery goals.</p>
+
+                <div class="info-box pink">
+                    <h3>The Science Behind This</h3>
+                    <p>Vision boards activate neuroplasticity and trigger dopamine release, enhancing goal commitment. Combined with mindfulness, they reduce relapse triggers by reframing negative thought patterns.</p>
+                    <p style="margin-top: 8px; font-size: 0.8rem;"><a href="https://sambarecovery.com/rehab-blog/visualization-techniques-to-support-sobriety/" target="_blank">View Research</a></p>
+                </div>
+
+                <div style="margin: 24px 0;">
+                    <h3>Your Recovery Goals</h3>
+                    <input type="text" id="goal0" placeholder="Goal 1: e.g., Rebuild relationship with my daughter" value="${data.visionBoard.goals[0]}">
+                    <input type="text" id="goal1" placeholder="Goal 2" value="${data.visionBoard.goals[1]}">
+                    <input type="text" id="goal2" placeholder="Goal 3" value="${data.visionBoard.goals[2]}">
+
+                    <h3 style="margin-top: 32px;">Add Images</h3>
+                    <div class="add-image-group">
+                        <input type="text" id="imageInput" placeholder="Paste image URL here...">
+                        <button class="primary" onclick="addImage()">Add</button>
+                    </div>
+
+                    <div class="image-grid" id="imageGrid">
+                        ${renderImageGrid()}
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="secondary" onclick="goToModule(1)">
+                        <span>←</span> Back
+                    </button>
+                    <button class="primary" onclick="saveVisionBoard()">
+                        Continue <span>→</span>
+                    </button>
+                </div>
+            `;
+
+            document.getElementById('imageInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') addImage();
+            });
+        }
+
+        function renderImageGrid() {
+            return data.visionBoard.images.map((img, i) => `
+                <div class="image-container">
+                    <img src="${img}" alt="Vision ${i + 1}">
+                    <button class="image-remove" onclick="removeImage(${i})">×</button>
+                </div>
+            `).join('');
+        }
+
+        function addImage() {
+            const input = document.getElementById('imageInput');
+            const url = input.value.trim();
+            if (url) {
+                data.visionBoard.images.push(url);
+                input.value = '';
+                saveData();
+                document.getElementById('imageGrid').innerHTML = renderImageGrid();
+            }
+        }
+
+        function removeImage(index) {
+            data.visionBoard.images.splice(index, 1);
+            saveData();
+            document.getElementById('imageGrid').innerHTML = renderImageGrid();
+        }
+
+        function saveVisionBoard() {
+            data.visionBoard.goals[0] = document.getElementById('goal0').value;
+            data.visionBoard.goals[1] = document.getElementById('goal1').value;
+            data.visionBoard.goals[2] = document.getElementById('goal2').value;
+            saveData();
+            goToModule(3);
+        }
+
+        function renderNumerology() {
+            document.getElementById('mainCard').innerHTML = `
+                <img src="https://image-cdn.klingai.com/2E67FA5DC7A24CD7AFE53DCBA8F696A4%2FAC2A11CCCBC04C3F81CA99A5BD71C9BA/work_resize_1280_720.jpg" 
+                     alt="Numerology" class="module-image">
+                
+                <div class="hero-icon">✨</div>
+                <h2>Your Numerology Analysis</h2>
+                <p style="text-align: center; margin-bottom: 24px;">Discover the deeper meaning in your numbers.</p>
+
+                <div style="margin: 24px 0;">
+                    <label>Your Birth Date:</label>
+                    <input type="date" id="birthDate" value="${data.birthDate}" onchange="updateNumerology()">
+
+                    <label>Your Sobriety Date:</label>
+                    <input type="date" id="sobrietyDate" value="${data.sobrietyDate}" onchange="updateNumerology()">
+                </div>
+
+                <div id="numerologyResults">
+                    ${renderNumerologyResults()}
+                </div>
+
+                <div class="button-group">
+                    <button class="secondary" onclick="goToModule(2)">
+                        <span>←</span> Back
+                    </button>
+                    <button class="primary" onclick="saveNumerology()" ${!data.birthDate || !data.sobrietyDate ? 'disabled' : ''}>
+                        Continue <span>→</span>
+                    </button>
+                </div>
+            `;
+        }
+
+        function updateNumerology() {
+            data.birthDate = document.getElementById('birthDate').value;
+            data.sobrietyDate = document.getElementById('sobrietyDate').value;
+            data.numerology = calculateNumerology(data.birthDate, data.sobrietyDate);
+            saveData();
+            document.getElementById('numerologyResults').innerHTML = renderNumerologyResults();
+            
+            const btn = document.querySelector('.button-group .primary');
+            if (data.birthDate && data.sobrietyDate) {
+                btn.disabled = false;
+            } else {
+                btn.disabled = true;
+            }
+        }
+
+        function renderNumerologyResults() {
+            if (!data.numerology) return '';
+
+            const karmic = data.numerology.karmicDebt.length > 0 ? `
+                <div class="info-box pink" style="margin-top: 24px;">
+                    <h3>Karmic Debt Numbers</h3>
+                    ${data.numerology.karmicDebt.map(k => `
+                        <div style="margin-bottom: 12px;">
+                            <p style="font-weight: 600; color: #ff9ec9; margin-bottom: 4px;">Number ${k.number}</p>
+                            <p style="font-size: 0.9rem;">${k.meaning}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            ` : '';
+
+            return `
+                <div class="numerology-result">
+                    <div class="numerology-circle">${data.numerology.lifePath.number}</div>
+                    <div class="numerology-title">${data.numerology.lifePath.title}</div>
+                    <div class="numerology-subtitle">Your Life Path Number</div>
+                    <p class="numerology-message">${data.numerology.lifePath.message}</p>
+                </div>
+
+                <div class="info-box" style="margin-top: 24px;">
+                    <h3>Your Personal Year: ${data.numerology.personalYear.number}</h3>
+                    <p>${data.numerology.personalYear.meaning}</p>
+                </div>
+
+                ${karmic}
+            `;
+        }
+
+        function saveNumerology() {
+            saveData();
+            goToModule(4);
+        }
+
+        function renderLetterToFuture() {
+            document.getElementById('mainCard').innerHTML = `
+                <img src="https://image-cdn.klingai.com/2E67FA5DC7A24CD7AFE53DCBA8F696A4%2F75B46DE9D60F430C9A2D61AF98B1B7A0/work_resize_1280_720.jpg" 
+                     alt="Letter to Future" class="module-image">
+                
+                <div class="hero-icon">💌</div>
+                <h2>Letter to Your Future Self</h2>
+                <p style="text-align: center; margin-bottom: 24px;">Write to yourself one year from now, sober and thriving.</p>
+
+                <div class="info-box">
+                    <h3>The Science Behind This</h3>
+                    <p>Creating vivid scenes of substance-free life enhances self-efficacy and emotional regulation. Research shows this reduces anxiety and boosts coping skills.</p>
+                    <p style="margin-top: 8px; font-size: 0.8rem;"><a href="https://www.leorabh.com/blog/how-to-use-visualization-techniques-in-addiction-recovery" target="_blank">View Research</a></p>
+                </div>
+
+                <div class="info-box pink" style="margin-top: 16px;">
+                    <h3 style="font-style: italic;">Prompts to consider:</h3>
+                    <ul>
+                        <li>What do you hope your life looks like in one year?</li>
+                        <li>What are you most afraid of right now?</li>
+                        <li>What promises do you want to make to your future self?</li>
+                        <li>What relationships do you want to heal or build?</li>
+                        <li>What does freedom mean to you?</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 24px 0;">
+                    <textarea id="letterToFuture" style="min-height: 400px;" placeholder="Dear Future Me,
+
+Today is the beginning...">${data.letterToFuture}</textarea>
+                </div>
+
+                <div class="button-group">
+                    <button class="secondary" onclick="goToModule(3)">
+                        <span>←</span> Back
+                    </button>
+                    <button class="primary" onclick="saveLetterToFuture()">
+                        Continue <span>→</span>
+                    </button>
+                </div>
+            `;
+        }
+
+        function saveLetterToFuture() {
+            data.letterToFuture = document.getElementById('letterToFuture').value;
+            saveData();
+            goToModule(5);
+        }
+
+        function renderLetterFromFuture() {
+            document.getElementById('mainCard').innerHTML = `
+                <img src="https://image-cdn.klingai.com/2E67FA5DC7A24CD7AFE53DCBA8F696A4%2FE7C24DB0FA004C02983D4FB8A62A6C64/work_resize_1280_720.jpg" 
+                     alt="Letter from Future" class="module-image">
+                
+                <div class="hero-icon">❤️</div>
+                <h2>Letter from Your Future Self</h2>
+                <p style="text-align: center; margin-bottom: 24px;">Step into the shoes of your future recovered self and write back.</p>
+
+                <div class="info-box pink">
+                    <h3>This is the powerful one</h3>
+                    <p>Imagine yourself one year from now—sober, thriving, having achieved the goals on your vision board. What would that version of you say to the person you are today? What wisdom, encouragement, and love would they offer?</p>
+                </div>
+
+                ${data.numerology ? `
+                    <div class="info-box" style="margin-top: 16px;">
+                        <p><strong style="color: #ff9ec9;">Remember:</strong> Your Life Path as ${data.numerology.lifePath.title} has guided you here. Your future self has lived this meaning and found their way home.</p>
+                    </div>
+                ` : ''}
+
+                <div class="info-box" style="margin-top: 16px;">
+                    <h3 style="font-style: italic;">Writing as your future self, consider:</h3>
+                    <ul>
+                        <li>What you're most proud of achieving in your recovery</li>
+                        <li>The moments that were hardest and how you got through them</li>
+                        <li>What you wish you had known in those early days</li>
+                        <li>How your relationships have healed and grown</li>
+                        <li>The freedom and peace you've discovered</li>
+                        <li>Why every hard moment was worth it</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 24px 0;">
+                    <textarea id="letterFromFuture" style="min-height: 400px;" placeholder="Dear Past Me,
+
+I'm writing to you from one year in the future. I want you to know...">${data.letterFromFuture}</textarea>
+                </div>
+
+                <div class="info-box pink" style="margin-top: 16px;">
+                    <p><strong style="color: #c49edb;">Keep this letter:</strong> When things get hard, read this. Your future self believes in you.</p>
+                </div>
+
+                <div class="button-group">
+                    <button class="secondary" onclick="goToModule(4)">
+                        <span>←</span> Back
+                    </button>
+                    <button class="primary" onclick="saveLetterFromFuture()">
+                        Complete Journey <span>→</span>
+                    </button>
+                </div>
+            `;
+        }
+
+        function saveLetterFromFuture() {
+            data.letterFromFuture = document.getElementById('letterFromFuture').value;
+            saveData();
+            goToModule(6);
+        }
+
+        function renderCompletion() {
+            document.getElementById('mainCard').innerHTML = `
+                <div class="hero-icon">✨</div>
+                <h1>Your Recovery Journey is Complete</h1>
+                <p style="text-align: center; margin-bottom: 32px;">You've done powerful work today. This is yours to keep and return to.</p>
+
+                <div class="info-box" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(255, 158, 201, 0.2) 100%); border: 2px solid rgba(167, 139, 250, 0.5);">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 16px;">What You've Created:</h3>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <div style="display: flex; align-items: start; gap: 12px;">
+                            <span style="font-size: 1.5rem;">⏮️</span>
+                            <div>
+                                <p style="font-weight: 700; color: #c49edb; margin-bottom: 4px;">Playing the Tape Through</p>
+                                <p style="font-size: 0.9rem;">Understanding consequences</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: start; gap: 12px;">
+                            <span style="font-size: 1.5rem;">🖼️</span>
+                            <div>
+                                <p style="font-weight: 700; color: #c49edb; margin-bottom: 4px;">Vision Board</p>
+                                <p style="font-size: 0.9rem;">${data.visionBoard.goals.filter(g => g).length} goals, ${data.visionBoard.images.length} images</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: start; gap: 12px;">
+                            <span style="font-size: 1.5rem;">✨</span>
+                            <div>
+                                <p style="font-weight: 700; color: #c49edb; margin-bottom: 4px;">Numerology Analysis</p>
+                                <p style="font-size: 0.9rem;">${data.numerology ? data.numerology.lifePath.title : 'Not completed'}</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: start; gap: 12px;">
+                            <span style="font-size: 1.5rem;">💌</span>
+                            <div>
+                                <p style="font-weight: 700; color: #c49edb; margin-bottom: 4px;">Letters to & from Future Self</p>
+                                <p style="font-size: 0.9rem;">Connection and wisdom</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid" style="margin: 24px 0;">
+                    <div class="grid-item">
+                        <h4>💾 Your Work is Saved</h4>
+                        <p>Everything is stored privately on your device. You can close this and return anytime from the same browser.</p>
+                    </div>
+                    <div class="grid-item pink">
+                        <h4>📱 Access Anytime</h4>
+                        <p>Bookmark this page or save the link. Come back at night when you have quiet time to think.</p>
+                    </div>
+                </div>
+
+                <button class="primary" onclick="downloadJourney()" style="width: 100%; margin-bottom: 16px;">
+                    <span>💾</span>
+                    Download Your Recovery Journey
+                </button>
+
+                <div class="info-box pink">
+                    <h3 style="font-style: italic;">When to Return to This</h3>
+                    <ul>
+                        <li>When cravings feel overwhelming</li>
+                        <li>When you question whether recovery is worth it</li>
+                        <li>When you've had a victory and want to celebrate</li>
+                        <li>When you need to remember your "why"</li>
+                        <li>To update your vision as you grow</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(255, 158, 201, 0.2) 100%); padding: 32px; border-radius: 16px; border: 2px solid rgba(255, 158, 201, 0.5); margin-top: 24px;">
+                    <p style="font-size: 1.3rem; font-weight: 700; background: linear-gradient(135deg, #c49edb 0%, #ff9ec9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 12px;">
+                        Your future self is proud of you for doing this work today.
+                    </p>
+                    <p style="font-size: 1.1rem;">
+                        One day at a time. You've got this. 💜
+                    </p>
+                </div>
+            `;
+        }
+
+        function downloadJourney() {
+            const content = `MY RECOVERY JOURNEY
+═══════════════════
+
+Date Created: ${new Date().toLocaleDateString()}
+Birth Date: ${data.birthDate || 'Not set'}
+Sobriety Date: ${data.sobrietyDate || 'Not set'}
+
+${data.numerology ? `
+NUMEROLOGY ANALYSIS
+-------------------
+Life Path Number: ${data.numerology.lifePath.number} - ${data.numerology.lifePath.title}
+${data.numerology.lifePath.message}
+
+Personal Year: ${data.numerology.personalYear.number}
+${data.numerology.personalYear.meaning}
+
+${data.numerology.karmicDebt.length > 0 ? `Karmic Debt Numbers:
+${data.numerology.karmicDebt.map(k => `Number ${k.number}: ${k.meaning}`).join('\n')}` : ''}
+` : ''}
+
+PLAYING THE TAPE THROUGH
+-------------------------
+Trigger: ${data.playingTape.trigger || 'Not completed'}
+Thoughts: ${data.playingTape.thoughts || 'Not completed'}
+Actions: ${data.playingTape.actions || 'Not completed'}
+Consequences: ${data.playingTape.consequences || 'Not completed'}
+Aftermath: ${data.playingTape.feelings || 'Not completed'}
+
+MY RECOVERY GOALS
+-----------------
+${data.visionBoard.goals.filter(g => g).map((g, i) => `${i + 1}. ${g}`).join('\n') || 'Not set'}
+
+LETTER TO MY FUTURE SELF
+------------------------
+${data.letterToFuture || 'Not written yet'}
+
+LETTER FROM MY FUTURE SELF
+--------------------------
+${data.letterFromFuture || 'Not written yet'}
+
+═══════════════════
+Keep this document. Return to it when you need strength, clarity, or a reminder of why you're doing this.
+You are worthy of recovery. You are capable of change. Your future self is waiting for you.
+`;
+
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'my-recovery-journey.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
