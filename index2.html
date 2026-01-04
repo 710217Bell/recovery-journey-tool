@@ -7,7 +7,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500&family=Dancing+Script:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Raleway:wght@300;400;500&family=Dancing+Script:wght@400;500&family=Parisienne&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,27 +16,31 @@
         }
 
         :root {
-            --charcoal: #1A1A1A;
-            --dark-charcoal: #0F0F0F;
-            --light-charcoal: #2A2A2A;
+            --soft-grey: #F5F5F7;
+            --light-grey: #EAEAEC;
+            --medium-grey: #D8D8DC;
             --lilac: #C8A2C8;
+            --soft-lilac: #E6D4E6;
             --blush: #FFD1DC;
-            --soft-blush: #FFE6EC;
+            --soft-blush: #FFEBF0;
             --gold: #D4AF37;
-            --cream: #F5F1E8;
-            --pearl: #F8F4F0;
-            --platinum: #E5E4E2;
-            --silk: #EFEADD;
+            --light-gold: #EBD99F;
+            --cream: #FAF7F2;
+            --pearl: #FFFEFC;
+            --platinum: #F0F0F5;
+            --silk: #F8F6F2;
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, var(--dark-charcoal) 0%, var(--charcoal) 50%, #2D2D2D 100%);
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, var(--soft-grey) 0%, var(--light-grey) 50%, var(--platinum) 100%);
             min-height: 100vh;
             padding: 20px;
-            color: var(--pearl);
-            letter-spacing: 0.3px;
+            color: #555;
+            letter-spacing: 0.2px;
             line-height: 1.6;
+            font-weight: 400;
+            font-style: italic;
         }
 
         .container {
@@ -46,13 +50,13 @@
 
         /* Progress Bar - Elegant Redesign */
         .progress-bar {
-            background: rgba(40, 40, 40, 0.7);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(15px);
             border-radius: 16px;
             padding: 20px 24px;
             margin-bottom: 32px;
             border: 1px solid rgba(200, 162, 200, 0.2);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 32px rgba(200, 162, 200, 0.1);
             position: relative;
             overflow: hidden;
         }
@@ -64,7 +68,7 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--lilac), var(--blush), var(--gold));
+            background: linear-gradient(90deg, var(--soft-lilac), var(--soft-blush), var(--light-gold));
         }
 
         .progress-header {
@@ -75,11 +79,10 @@
         }
 
         .progress-label {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Parisienne', cursive;
             font-size: 18px;
             color: var(--lilac);
-            font-style: italic;
-            font-weight: 300;
+            font-weight: 400;
             letter-spacing: 0.5px;
         }
 
@@ -88,16 +91,16 @@
             font-size: 18px;
             color: var(--blush);
             font-weight: 500;
-            background: rgba(255, 209, 220, 0.1);
+            background: rgba(255, 209, 220, 0.15);
             padding: 6px 16px;
             border-radius: 20px;
-            border: 1px solid rgba(255, 209, 220, 0.2);
+            border: 1px solid rgba(255, 209, 220, 0.3);
         }
 
         .progress-track {
             width: 100%;
             height: 6px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(200, 162, 200, 0.1);
             border-radius: 3px;
             overflow: hidden;
             position: relative;
@@ -105,22 +108,22 @@
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--lilac) 0%, var(--blush) 50%, var(--gold) 100%);
+            background: linear-gradient(90deg, var(--soft-lilac) 0%, var(--soft-blush) 50%, var(--light-gold) 100%);
             border-radius: 3px;
             transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 0 20px rgba(200, 162, 200, 0.3);
+            box-shadow: 0 0 20px rgba(200, 162, 200, 0.2);
         }
 
         /* Main Card - Luxury Design */
         .card {
-            background: rgba(40, 40, 40, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(25px);
             border-radius: 24px;
             padding: 60px 48px;
-            border: 1px solid rgba(200, 162, 200, 0.15);
+            border: 1px solid rgba(200, 162, 200, 0.1);
             box-shadow: 
-                0 25px 80px rgba(0, 0, 0, 0.7),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                0 20px 60px rgba(200, 162, 200, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
             position: relative;
             overflow: hidden;
         }
@@ -132,7 +135,7 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, var(--lilac), var(--blush), transparent);
+            background: linear-gradient(90deg, transparent, var(--soft-lilac), var(--soft-blush), transparent);
         }
 
         .save-indicator {
@@ -140,12 +143,12 @@
             margin-top: 32px;
             font-size: 15px;
             color: var(--lilac);
-            font-style: italic;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            opacity: 0.9;
+            opacity: 0.8;
+            font-style: italic;
         }
 
         .save-indicator span:first-child {
@@ -163,7 +166,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 3.2rem;
             font-weight: 600;
-            background: linear-gradient(135deg, var(--lilac) 0%, var(--blush) 30%, var(--pearl) 100%);
+            background: linear-gradient(135deg, var(--lilac) 0%, var(--blush) 30%, #888 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -171,18 +174,20 @@
             margin-bottom: 24px;
             line-height: 1.2;
             letter-spacing: 0.5px;
+            font-style: normal;
         }
 
         h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2.6rem;
             font-weight: 500;
-            color: var(--pearl);
+            color: #666;
             text-align: center;
             margin-bottom: 20px;
             line-height: 1.3;
             position: relative;
             padding-bottom: 20px;
+            font-style: normal;
         }
 
         h2::after {
@@ -199,7 +204,7 @@
         h3 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.8rem;
-            font-weight: 400;
+            font-weight: 500;
             color: var(--blush);
             margin-bottom: 20px;
             font-style: italic;
@@ -213,14 +218,16 @@
             color: var(--lilac);
             margin-bottom: 16px;
             letter-spacing: 0.3px;
+            font-style: italic;
         }
 
         p {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1.1rem;
             line-height: 1.7;
-            color: var(--platinum);
-            font-weight: 300;
+            color: #666;
+            font-weight: 400;
+            font-style: italic;
         }
 
         /* Hero Elements */
@@ -228,7 +235,7 @@
             text-align: center;
             font-size: 4.5rem;
             margin-bottom: 32px;
-            filter: drop-shadow(0 8px 20px rgba(200, 162, 200, 0.4));
+            filter: drop-shadow(0 8px 20px rgba(200, 162, 200, 0.2));
             animation: float 6s ease-in-out infinite;
         }
 
@@ -244,7 +251,7 @@
             border-radius: 16px;
             margin-bottom: 40px;
             border: 2px solid rgba(200, 162, 200, 0.2);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 15px 40px rgba(200, 162, 200, 0.1);
             transition: transform 0.5s ease;
         }
 
@@ -255,7 +262,7 @@
         /* Info Boxes - Luxury Style */
         .info-box {
             background: linear-gradient(135deg, 
-                rgba(200, 162, 200, 0.1) 0%, 
+                rgba(200, 162, 200, 0.08) 0%, 
                 rgba(255, 209, 220, 0.05) 100%);
             border-left: 4px solid var(--lilac);
             padding: 28px;
@@ -267,14 +274,14 @@
 
         .info-box.pink {
             background: linear-gradient(135deg, 
-                rgba(255, 209, 220, 0.1) 0%, 
+                rgba(255, 209, 220, 0.08) 0%, 
                 rgba(255, 230, 236, 0.05) 100%);
             border-left-color: var(--blush);
         }
 
         .info-box.gold {
             background: linear-gradient(135deg, 
-                rgba(212, 175, 55, 0.1) 0%, 
+                rgba(212, 175, 55, 0.08) 0%, 
                 rgba(255, 240, 200, 0.05) 100%);
             border-left-color: var(--gold);
         }
@@ -282,13 +289,14 @@
         .info-box h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.3rem;
-            color: var(--cream);
+            color: #666;
             margin-bottom: 12px;
             font-weight: 600;
+            font-style: normal;
         }
 
         .info-box p {
-            color: var(--platinum);
+            color: #666;
             font-size: 1rem;
             line-height: 1.7;
         }
@@ -298,6 +306,8 @@
             text-decoration: none;
             border-bottom: 1px solid rgba(255, 209, 220, 0.3);
             transition: border-color 0.3s ease;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
         }
 
         .info-box a:hover {
@@ -313,9 +323,7 @@
         }
 
         .grid-item {
-            background: linear-gradient(135deg, 
-                rgba(200, 162, 200, 0.05) 0%, 
-                rgba(40, 40, 40, 0.8) 100%);
+            background: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(200, 162, 200, 0.15);
             padding: 32px 24px;
             border-radius: 16px;
@@ -332,7 +340,7 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--lilac), var(--blush));
+            background: linear-gradient(90deg, var(--soft-lilac), var(--soft-blush));
             opacity: 0;
             transition: opacity 0.4s ease;
         }
@@ -340,7 +348,7 @@
         .grid-item:hover {
             transform: translateY(-4px);
             border-color: rgba(200, 162, 200, 0.3);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 40px rgba(200, 162, 200, 0.1);
         }
 
         .grid-item:hover::before {
@@ -348,10 +356,8 @@
         }
 
         .grid-item.pink {
-            background: linear-gradient(135deg, 
-                rgba(255, 209, 220, 0.05) 0%, 
-                rgba(40, 40, 40, 0.8) 100%);
-            border-color: rgba(255, 209, 220, 0.15);
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(255, 209, 220, 0.2);
         }
 
         .grid-item .icon {
@@ -369,6 +375,7 @@
             margin-bottom: 12px;
             font-size: 1.2rem;
             letter-spacing: 0.3px;
+            font-style: italic;
         }
 
         input[type="text"],
@@ -377,14 +384,15 @@
         textarea {
             width: 100%;
             padding: 16px 20px;
-            background: rgba(50, 50, 50, 0.6);
+            background: rgba(255, 255, 255, 0.9);
             border: 2px solid rgba(200, 162, 200, 0.2);
             border-radius: 12px;
-            color: var(--pearl);
+            color: #666;
             font-size: 1rem;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             transition: all 0.3s ease;
             margin-bottom: 20px;
+            font-style: italic;
         }
 
         input[type="text"]:focus,
@@ -398,7 +406,7 @@
 
         input[type="text"]::placeholder,
         textarea::placeholder {
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(150, 150, 150, 0.5);
             font-style: italic;
             font-family: 'Cormorant Garamond', serif;
         }
@@ -430,10 +438,11 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Raleway', sans-serif;
             letter-spacing: 0.5px;
             position: relative;
             overflow: hidden;
+            font-style: normal;
         }
 
         button::before {
@@ -445,7 +454,7 @@
             height: 100%;
             background: linear-gradient(90deg, 
                 transparent, 
-                rgba(255, 255, 255, 0.1), 
+                rgba(255, 255, 255, 0.3), 
                 transparent);
             transition: left 0.7s ease;
         }
@@ -459,24 +468,24 @@
                 var(--lilac) 0%, 
                 var(--blush) 50%, 
                 rgba(212, 175, 55, 0.8) 100%);
-            color: var(--charcoal);
-            box-shadow: 0 12px 30px rgba(200, 162, 200, 0.4);
+            color: white;
+            box-shadow: 0 12px 30px rgba(200, 162, 200, 0.3);
         }
 
         button.primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(200, 162, 200, 0.5);
+            box-shadow: 0 20px 40px rgba(200, 162, 200, 0.4);
         }
 
         button.secondary {
-            background: rgba(60, 60, 60, 0.6);
+            background: rgba(255, 255, 255, 0.9);
             color: var(--lilac);
             border: 1px solid rgba(200, 162, 200, 0.3);
             backdrop-filter: blur(10px);
         }
 
         button.secondary:hover {
-            background: rgba(70, 70, 70, 0.8);
+            background: white;
             border-color: var(--lilac);
             transform: translateY(-3px);
         }
@@ -490,15 +499,15 @@
         /* Numerology Results - Luxury */
         .numerology-result {
             background: linear-gradient(135deg, 
-                rgba(200, 162, 200, 0.15) 0%, 
-                rgba(255, 209, 220, 0.1) 100%);
+                rgba(200, 162, 200, 0.1) 0%, 
+                rgba(255, 209, 220, 0.08) 100%);
             padding: 48px;
             border-radius: 20px;
-            border: 2px solid rgba(200, 162, 200, 0.3);
+            border: 2px solid rgba(200, 162, 200, 0.2);
             margin: 40px 0;
             text-align: center;
             backdrop-filter: blur(15px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 50px rgba(200, 162, 200, 0.1);
             position: relative;
         }
 
@@ -509,7 +518,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23c8a2c8' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23c8a2c8' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
             opacity: 0.5;
         }
 
@@ -518,7 +527,7 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            background: var(--charcoal);
+            background: white;
             border: 4px solid var(--gold);
             display: flex;
             align-items: center;
@@ -528,7 +537,7 @@
             font-weight: 700;
             color: var(--gold);
             margin-bottom: 24px;
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
             position: relative;
             z-index: 1;
         }
@@ -537,28 +546,28 @@
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             font-weight: 600;
-            color: var(--cream);
+            color: #666;
             margin-bottom: 12px;
             position: relative;
             z-index: 1;
+            font-style: normal;
         }
 
         .numerology-subtitle {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.1rem;
             color: var(--lilac);
-            font-style: italic;
             margin-bottom: 20px;
             position: relative;
             z-index: 1;
         }
 
         .numerology-message {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1.2rem;
             line-height: 1.8;
-            color: var(--pearl);
-            font-weight: 300;
+            color: #666;
+            font-weight: 400;
             position: relative;
             z-index: 1;
         }
@@ -577,7 +586,7 @@
             padding: 60px 40px;
             border: 3px dashed rgba(200, 162, 200, 0.3);
             border-radius: 20px;
-            background: rgba(50, 50, 50, 0.4);
+            background: rgba(255, 255, 255, 0.8);
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: center;
@@ -585,7 +594,7 @@
 
         .file-upload-label:hover {
             border-color: var(--blush);
-            background: rgba(50, 50, 50, 0.6);
+            background: white;
             transform: translateY(-2px);
         }
 
@@ -598,14 +607,17 @@
         .file-upload-text {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.3rem;
-            color: var(--cream);
+            color: #666;
             margin-bottom: 12px;
             font-weight: 500;
+            font-style: italic;
         }
 
         .file-upload-subtext {
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(150, 150, 150, 0.8);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
         }
 
         #fileInput {
@@ -625,13 +637,13 @@
             overflow: hidden;
             border: 2px solid rgba(200, 162, 200, 0.2);
             transition: all 0.3s ease;
-            background: rgba(30, 30, 30, 0.6);
+            background: white;
         }
 
         .image-container:hover {
             transform: translateY(-4px);
             border-color: var(--lilac);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 15px 30px rgba(200, 162, 200, 0.1);
         }
 
         .image-container img {
@@ -645,7 +657,7 @@
             position: absolute;
             top: 12px;
             right: 12px;
-            background: rgba(31, 31, 31, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             color: var(--blush);
             border: none;
             border-radius: 50%;
@@ -661,6 +673,8 @@
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 209, 220, 0.2);
+            font-family: 'Raleway', sans-serif;
+            font-style: normal;
         }
 
         .image-container:hover .image-remove {
@@ -669,19 +683,47 @@
 
         .image-remove:hover {
             background: var(--blush);
-            color: var(--charcoal);
+            color: white;
             transform: scale(1.1);
         }
 
         .image-name {
             padding: 12px;
             font-size: 0.9rem;
-            color: var(--platinum);
+            color: #888;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             text-align: center;
-            background: rgba(20, 20, 20, 0.8);
+            background: rgba(250, 250, 250, 0.9);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+        }
+
+        /* Arrangement Controls */
+        .arrangement-controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+
+        .arrange-btn {
+            background: rgba(200, 162, 200, 0.1);
+            border: 1px solid rgba(200, 162, 200, 0.2);
+            color: var(--lilac);
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-family: 'Raleway', sans-serif;
+            transition: all 0.3s ease;
+            font-style: normal;
+        }
+
+        .arrange-btn:hover {
+            background: rgba(200, 162, 200, 0.2);
+            border-color: var(--lilac);
         }
 
         /* List Styles */
@@ -691,18 +733,19 @@
         }
 
         li {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1rem;
             line-height: 1.7;
-            color: var(--platinum);
-            font-weight: 300;
+            color: #666;
+            font-weight: 400;
             margin-bottom: 12px;
             padding-left: 28px;
             position: relative;
+            font-style: italic;
         }
 
         li::before {
-            content: '✦';
+            content: '❀';
             position: absolute;
             left: 0;
             color: var(--lilac);
@@ -749,11 +792,12 @@
         /* Handwritten Elements */
         .handwriting {
             font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--blush);
             font-weight: 400;
             margin: 20px 0;
             text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .gold-accent {
@@ -767,16 +811,16 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: rgba(40, 40, 40, 0.8);
+            background: rgba(240, 240, 240, 0.8);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(var(--lilac), var(--blush));
+            background: linear-gradient(var(--soft-lilac), var(--soft-blush));
             border-radius: 5px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(var(--blush), var(--lilac));
+            background: linear-gradient(var(--soft-blush), var(--soft-lilac));
         }
     </style>
 </head>
@@ -939,7 +983,8 @@
                 reader.onload = function(e) {
                     data.visionBoard.images.push({
                         name: file.name,
-                        data: e.target.result
+                        data: e.target.result,
+                        order: data.visionBoard.images.length
                     });
                     saveData();
                     updateImageGrid();
@@ -954,25 +999,67 @@
             const grid = document.getElementById('imageGrid');
             if (grid) {
                 grid.innerHTML = renderImageGrid();
+                setupImageControls();
             }
         }
 
         function renderImageGrid() {
             if (data.visionBoard.images.length === 0) {
-                return '<p style="text-align: center; color: rgba(255,255,255,0.4); font-style: italic;">No images added yet</p>';
+                return '<p style="text-align: center; color: rgba(150,150,150,0.5); font-style: italic;">No images added yet. Upload some images to create your vision board.</p>';
             }
             
-            return data.visionBoard.images.map((img, i) => `
+            // Sort images by order
+            const sortedImages = [...data.visionBoard.images].sort((a, b) => a.order - b.order);
+            
+            return sortedImages.map((img, i) => `
                 <div class="image-container">
-                    <img src="${img.data}" alt="${img.name}">
+                    <img src="${img.data}" alt="${img.name}" data-index="${i}">
                     <div class="image-name">${img.name}</div>
-                    <button class="image-remove" onclick="removeImage(${i})" title="Remove image">×</button>
+                    <div class="arrangement-controls">
+                        <button class="arrange-btn" onclick="moveImageUp(${i})" ${i === 0 ? 'disabled style="opacity:0.5;"' : ''}>↑</button>
+                        <button class="arrange-btn" onclick="moveImageDown(${i})" ${i === data.visionBoard.images.length - 1 ? 'disabled style="opacity:0.5;"' : ''}>↓</button>
+                        <button class="arrange-btn" onclick="removeImage(${i})">✕</button>
+                    </div>
                 </div>
             `).join('');
         }
 
+        function setupImageControls() {
+            // Already set up via onclick handlers in renderImageGrid
+        }
+
+        function moveImageUp(index) {
+            if (index > 0) {
+                const temp = data.visionBoard.images[index].order;
+                data.visionBoard.images[index].order = data.visionBoard.images[index - 1].order;
+                data.visionBoard.images[index - 1].order = temp;
+                
+                // Sort the array
+                data.visionBoard.images.sort((a, b) => a.order - b.order);
+                saveData();
+                updateImageGrid();
+            }
+        }
+
+        function moveImageDown(index) {
+            if (index < data.visionBoard.images.length - 1) {
+                const temp = data.visionBoard.images[index].order;
+                data.visionBoard.images[index].order = data.visionBoard.images[index + 1].order;
+                data.visionBoard.images[index + 1].order = temp;
+                
+                // Sort the array
+                data.visionBoard.images.sort((a, b) => a.order - b.order);
+                saveData();
+                updateImageGrid();
+            }
+        }
+
         function removeImage(index) {
             data.visionBoard.images.splice(index, 1);
+            // Reassign order numbers
+            data.visionBoard.images.forEach((img, i) => {
+                img.order = i;
+            });
             saveData();
             updateImageGrid();
         }
@@ -1008,7 +1095,7 @@
                     <p>This refined tool uses proven visualization methods from addiction recovery research—guided imagery, scenario rehearsal, and vision boarding—techniques shown to enhance motivation, manage cravings, and strengthen sobriety goals.</p>
                 </div>
 
-                <h3 style="color: var(--blush); font-size: 1.5rem; margin: 48px 0 24px 0; text-align: center;">Your Journey Includes:</h3>
+                <h3 style="color: var(--blush); font-size: 1.5rem; margin: 48px 0 24px 0; text-align: center; font-style: italic;">Your Journey Includes:</h3>
 
                 <div class="grid">
                     <div class="grid-item">
@@ -1199,7 +1286,7 @@
         }
 
         function renderNumerologyResults() {
-            if (!data.numerology) return '<p style="text-align: center; color: rgba(255,255,255,0.4); font-style: italic;">Enter your dates to see your numerology analysis</p>';
+            if (!data.numerology) return '<p style="text-align: center; color: rgba(150,150,150,0.5); font-style: italic;">Enter your dates to see your numerology analysis</p>';
 
             const karmic = data.numerology.karmicDebt.length > 0 ? `
                 <div class="info-box" style="margin-top: 32px;">
@@ -1355,33 +1442,33 @@ Looking back, I remember...">${data.letterFromFuture}</textarea>
                 <p style="text-align: center; margin-bottom: 48px; font-size: 1.2rem;">This sacred space and your reflections are yours to keep and return to.</p>
 
                 <div class="info-box gold" style="background: linear-gradient(135deg, 
-                    rgba(200, 162, 200, 0.15) 0%, 
-                    rgba(255, 209, 220, 0.1) 100%); 
-                    border: 2px solid rgba(212, 175, 55, 0.3);">
+                    rgba(200, 162, 200, 0.1) 0%, 
+                    rgba(255, 209, 220, 0.08) 100%); 
+                    border: 2px solid rgba(212, 175, 55, 0.2);">
                     <h3 style="font-size: 1.5rem; margin-bottom: 24px; text-align: center;">What You've Created:</h3>
                     <div style="display: flex; flex-direction: column; gap: 20px;">
-                        <div style="display: flex; align-items: center; gap: 20px; padding: 16px; background: rgba(40, 40, 40, 0.4); border-radius: 12px;">
+                        <div style="display: flex; align-items: center; gap: 20px; padding: 16px; background: rgba(255, 255, 255, 0.6); border-radius: 12px;">
                             <span style="font-size: 2rem;">⏮️</span>
                             <div>
                                 <p style="font-family: \'Cormorant Garamond\', serif; font-weight: 600; color: var(--lilac); margin-bottom: 4px; font-size: 1.2rem;">Playing the Tape Through</p>
                                 <p style="font-size: 0.95rem;">Understanding consequences</p>
                             </div>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 20px; padding: 16px; background: rgba(40, 40, 40, 0.4); border-radius: 12px;">
+                        <div style="display: flex; align-items: center; gap: 20px; padding: 16px; background: rgba(255, 255, 255, 0.6); border-radius: 12px;">
                             <span style="font-size: 2rem;">🖼️</span>
                             <div>
                                 <p style="font-family: \'Cormorant Garamond\', serif; font-weight: 600; color: var(--lilac); margin-bottom: 4px; font-size: 1.2rem;">Vision Board</p>
                                 <p style="font-size: 0.95rem;">${data.visionBoard.goals.filter(g => g).length} goals, ${data.visionBoard.images.length} images</p>
                             </div>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 20px; padding: 16px; background: rgba(40, 40, 40, 0.4); border-radius: 12px;">
+                        <div style="display: flex; align-items: center; gap: 20px; padding: 16px; background: rgba(255, 255, 255, 0.6); border-radius: 12px;">
                             <span style="font-size: 2rem;">✨</span>
                             <div>
                                 <p style="font-family: \'Cormorant Garamond\', serif; font-weight: 600; color: var(--lilac); margin-bottom: 4px; font-size: 1.2rem;">Numerology Analysis</p>
                                 <p style="font-size: 0.95rem;">${data.numerology ? data.numerology.lifePath.title : 'Not completed'}</p>
                             </div>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 20px; padding: 16px; background: rgba(40, 40, 40, 0.4); border-radius: 12px;">
+                        <div style="display: flex; align-items: center; gap: 20px; padding: 16px; background: rgba(255, 255, 255, 0.6); border-radius: 12px;">
                             <span style="font-size: 2rem;">💌</span>
                             <div>
                                 <p style="font-family: \'Cormorant Garamond\', serif; font-weight: 600; color: var(--lilac); margin-bottom: 4px; font-size: 1.2rem;">Letters to & from Future Self</p>
@@ -1419,10 +1506,10 @@ Looking back, I remember...">${data.letterFromFuture}</textarea>
                 </div>
 
                 <div style="text-align: center; background: linear-gradient(135deg, 
-                    rgba(200, 162, 200, 0.2) 0%, 
-                    rgba(255, 209, 220, 0.15) 100%); 
+                    rgba(200, 162, 200, 0.15) 0%, 
+                    rgba(255, 209, 220, 0.1) 100%); 
                     padding: 48px; border-radius: 20px; 
-                    border: 2px solid rgba(212, 175, 55, 0.4); 
+                    border: 2px solid rgba(212, 175, 55, 0.2); 
                     margin-top: 40px;">
                     <p style="font-size: 1.4rem; font-family: \'Playfair Display\', serif; 
                         font-weight: 600; background: linear-gradient(135deg, var(--lilac) 0%, var(--blush) 50%, var(--gold) 100%); 
@@ -1430,7 +1517,7 @@ Looking back, I remember...">${data.letterFromFuture}</textarea>
                         margin-bottom: 16px; line-height: 1.4;">
                         Your future self is proud of you for doing this elegant, profound work today.
                     </p>
-                    <p style="font-size: 1.1rem; color: var(--cream);">
+                    <p style="font-size: 1.1rem; color: #666;">
                         One day at a time. You are worthy. You are capable. You are becoming. 💜
                     </p>
                 </div>
